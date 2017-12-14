@@ -1,0 +1,41 @@
+<html> <SCRIPT>
+          String.prototype.hashCode = function() {
+        var hash = 0;
+        if (this.length == 0) return hash;
+        for (i = 0; i < this.length; i++) {
+            char = this.charCodeAt(i);
+            hash = ((hash<<5)-hash)+char;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash;
+    }
+
+ 
+        function passWord() {
+        
+        var password = prompt('Enter your code here','');
+
+        while(true){
+             if (password.toLowerCase().hashCode() == 198942874) {
+                alert('You Got it Right!');
+                window.open('success.html');
+                break;
+                } 
+             if (password.toLowerCase().hashCode() !=198942874) {
+                alert('That is wrong.');
+                var password = prompt('Wrong. Please Try Again','');
+                } 
+            }
+        }   
+        </SCRIPT>
+    <head> <title>Puzzle Number Four</title>
+        <link rel="stylesheet" href = "style.css">
+        <h1 align="center"> Puzzle Number 4 </h1>
+    </head>
+    <body>
+        <h3 align="center"> You enter the final room. It is empty, except for one computer, sitting in the middle of the room. On the computer is <a href=hiddenanswer.html target="_blank">this website.</a> 
+          <br> <br>
+          <center> <img src="computer.jpg" height=500px width="500px"> </center>
+            <form align="center"> <input type="button" value="Enter Code" onClick="passWord()"> </form>
+    </body>
+</html>

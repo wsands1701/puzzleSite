@@ -1,0 +1,52 @@
+<html> 
+    <SCRIPT>
+          String.prototype.hashCode = function() {
+        var hash = 0;
+        if (this.length == 0) return hash;
+        for (i = 0; i < this.length; i++) {
+            char = this.charCodeAt(i);
+            hash = ((hash<<5)-hash)+char;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash;
+    }
+        function passWord(){
+        var password = prompt('Enter your code here','');
+
+        while(true){
+             if (password.toLowerCase().hashCode() == -1426988059) {
+                alert('You Got it Right!');
+                window.open('puzzle2.html');
+                break;
+                } 
+             if (password.toLowerCase().hashCode()!= -1426988059) {
+                alert('That is wrong.');
+                var password = prompt('Wrong. Please Try Again','');
+                } 
+            }
+            }
+        
+        function hint() {  
+            alert('Perhaps this website (https://morsecode.scphillips.com/) might prove helpful')
+        }
+        </SCRIPT>
+    <head> <title>Puzzle Number One</title>
+        <link rel="stylesheet" href = "style.css">
+        <h1 align="center"> Puzzle Number 1 </h1>
+    </head>
+    <body>
+         <h3 align=center>You enter a room. The room is bare, save for a single desk in the middle of the room.<br> On the desk, you see a strange object. A weird chirping noise begins emanating from it.</h3>
+        <br> <p align="center"><img src="morse.jpg"> </p> 
+         <p align="center">
+            <audio controls autoplay>
+                <source src="morsecode.wav">
+            </audio>
+        </p>
+        <h3 align=center> As you walk closer, the sound gets louder. You see a panel on the desk next to the machine, just a blank screen, and a keyboard.
+            The cursor sits blinking, waiting for your input. </h3>
+          
+        <form align="center"> <input type="button" value="Enter Code" onClick="passWord()"> 
+            <input type="button" value="If you are stuck, Click Here for a Hint" onClick="hint()"> </form>
+            <div class="footer" align=center>Click <a href=startPage.html>here </a> to return to the start.</div>
+    </body>
+</html>

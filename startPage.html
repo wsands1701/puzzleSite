@@ -1,0 +1,47 @@
+<html> 
+    <SCRIPT>
+        
+      String.prototype.hashCode = function() {
+        var hash = 0;
+        if (this.length == 0) return hash;
+        for (i = 0; i < this.length; i++) {
+            char = this.charCodeAt(i);
+            hash = ((hash<<5)-hash)+char;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash;
+    }
+
+        function passWord() {
+        
+        var password = prompt('Enter your code here','');
+            
+        while(true){
+             if ((password.toLowerCase()).hashCode() == 1216985755) {
+                alert('You Got it Right!');
+                window.open('puzzle1.html');
+                break;
+                } 
+             if ((password.toLowerCase()).hashCode() != 1216985755) {
+                alert('That is wrong.');
+                var password = prompt('Wrong. Please Try Again',''); 
+                } 
+            }
+        }   
+        </SCRIPT>
+    <head> <title> Intro Page </title>
+        <link rel="stylesheet" href = "style.css">
+    <h1 align = "center"> Welcome to the Challenge </h1>
+    </head>
+<body>
+   
+    <p align="center">Welcome to this puzzle. This challenge should take between 30 to 40 minutes to complete! To move on, you must discover the code on each page, and enter it into the password box. The first password is password. Good Luck!  <br> <br> 
+        Side note: Passwords are not case sensitive. The first couple of challenges will have hints available, but the last two will need to be done without hints! <br> <br>P.S. The passwords are run through a hash function, so you won't be able to figure them out just by looking at the source code. 😉
+
+       <br> <br> Enter the password here. <br> <img src="downarrow.png" height = "300px" width="300px"></p>
+            <!-- Image source http://icons.mysitemyway.com/legacy-icon/008769-high-resolution-dark-blue-denim-jeans-icon-arrows-hand-clear-pointer-down/ -->
+    <form align="center"> <input type="button" value="Enter Code" onClick="passWord()"> </form>
+
+
+</body>
+    </html>

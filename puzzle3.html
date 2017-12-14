@@ -1,0 +1,57 @@
+<html> <SCRIPT>
+          String.prototype.hashCode = function() {
+        var hash = 0;
+        if (this.length == 0) return hash;
+        for (i = 0; i < this.length; i++) {
+            char = this.charCodeAt(i);
+            hash = ((hash<<5)-hash)+char;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash;
+    }
+
+        function passWord() {
+        
+        var password = prompt('Enter your code here','');
+
+        while(true){
+             if (password.toLowerCase().hashCode() == -563407371) {
+                alert('You Got it Right!');
+                window.open('puzzle4.html');
+                break;
+                } 
+             if (password.toLowerCase().hashCode()!= -563407371) {
+                alert('That is wrong.');
+                var password = prompt('Wrong. Please Try Again','');
+                } 
+            }
+        }   
+        </SCRIPT>
+    <head> <title>Puzzle Number Three</title>
+        <link rel="stylesheet" href = "style.css">
+        <h1 align="center"> Puzzle Number 3 </h1>
+    </head>
+    <body>
+        <h3 align=center> You the door clicks open, and you enter a small room which appears to be a jail cell. You can see through the bars to a large room, with a treasure chest in the middle. <br> 
+            You look around for a way to open the cell door blocking your passage. You approach a computer terminal, which has a program on it titled doorOpen.exe and a file labeled encryptedPassword.txt. When you click the doorOpen.exe file, it asks for the admin password. You open the encryptedPassword.txt to find the following: </h3>
+         <br> <br> <center>
+                -----BEGIN PGP MESSAGE-----<br>
+                Version: BCPG C# v1.6.1.0<br><br>
+                
+                hQEMA/R5WLNjuMqSAQf/e/tJxS3wdNG5HoNBP6YGZ2AP+2zh7QaMiIelfgFgTtI6<br>
+                k6gXynDlx7FUozG6Mk/FXCgpqiI499116viK5P2hwVvIh5Jt7Z5F4HfW3jGCeJSR<br>
+                3F7YhEjZ4qcLV3S96sXu6bCjOYPWpv2YKX13BoFkMEfw1nDxqYNaR6J0g2qhhWay<br>
+                FXQbi9l3E/KyKtFHVhYNeNSYNaPjtpvjsU2sLc3Xck6rarWuL8eFU1rxizSRbGwR<br>
+                qoiqBp6q91EQ+v6q5dz5dFP2xWRtrxpgF0QFmsl8xw1KhYXuAC6T8gPsajY5C+9d<br>
+                Fp+S1CXGbqIrY3Ag/AmlA2zCvsp8xmCDk8cPUdnhzMk/5H0IXNQ9pSj4bJRea1y3<br>
+                NPp2dfKJmkd9mrKiJeWkbOo+8yHlOfsHGQuG8BAywud5vGr57LZKqvtCpHValRXj<br>
+                =BUCS<br>
+                -----END PGP MESSAGE-----<br> <br>
+                
+             <h3 align=center> You then notice a crumbled up envelope hidden in the corner of the room. You open it up, on the inside flap of the envelop, it reads "The PGP Passphrase is 'secret'". <br>Also inside the envelope is <a href="discardedPaper.txt"> this piece of paper </a>. </h3>
+            
+            <br>
+            <form align="center"> <input type="button" value="Enter Code" onClick="passWord()"> </form>
+            <div class="footer" align=center>Click <a href=startPage.html>here </a> to return to the start.</div>
+    </body>
+</html>
